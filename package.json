@@ -1,0 +1,20 @@
+{
+  "name": "example-monorepo",
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:aknorw/example-monorepo.git",
+    "directory": "packages/name"
+  },
+  "license": "UNLICENSED",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "engines": {
+    "node": "12.x"
+  },
+  "devDependencies": {
+    "lerna": "^3.20.2"
+  }
+}
