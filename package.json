@@ -14,6 +14,10 @@
   "engines": {
     "node": "12.x"
   },
+  "scripts": {
+    "build": "lerna run build",
+    "publish:pkg": "lerna publish"
+  },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^11.0.2",
     "@rollup/plugin-node-resolve": "^7.1.1",
