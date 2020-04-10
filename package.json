@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "repository": {
     "type": "git",
-    "url": "git@github.com:aknorw/example-monorepo.git",
+    "url": "ssh://git@github.com/aknorw/example-monorepo.git",
     "directory": "packages/name"
   },
   "license": "UNLICENSED",

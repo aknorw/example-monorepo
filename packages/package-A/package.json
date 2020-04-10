@@ -5,6 +5,11 @@
   "files": [
     "dist"
   ],
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com/aknorw/example-monorepo.git",
+    "directory": "packages/package-A"
+  },
   "license": "UNLICENSED",
   "scripts": {
     "clean": "rimraf dist",
