@@ -26,9 +26,9 @@ jobs:
         uses: changesets/action@master
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}} # Automatically created by GitHub.
-      
+
       - name: Install Dependencies
-          run: yarn --frozen-lockfile
+        run: yarn --frozen-lockfile
 
       # Because of the prepublishOnly script, packages will be built before being published.
       - name: Publish packages
