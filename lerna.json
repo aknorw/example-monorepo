@@ -5,7 +5,9 @@
   "useWorkspaces": true,
   "command": {
     "publish": {
-      "registry": "https://npm.pkg.github.com/@aknorw"
+      "registry": "https://npm.pkg.github.com/@aknorw",
+      "allowBranch": ["master"],
+      "message": "Publish package(s)"
     }
   }
 }
