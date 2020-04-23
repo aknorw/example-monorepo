@@ -27,4 +27,4 @@ jobs:
       - name: Publish packages
         run: yarn publish-ci
         env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}} # Automatically created by GitHub.
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}} # Must need to edit this?
