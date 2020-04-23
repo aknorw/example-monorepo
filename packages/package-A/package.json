@@ -1,0 +1,17 @@
+{
+  "name": "package-a",
+  "version": "0.1.0",
+  "module": "dist/index.js",
+  "files": ["dist"],
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com/aknorw/example-monorepo.git",
+    "directory": "packages/package-A"
+  },
+  "license": "UNLICENSED",
+  "scripts": {
+    "clean": "rimraf dist",
+    "prebuild": "yarn clean",
+    "build": "rollup -c"
+  }
+}
