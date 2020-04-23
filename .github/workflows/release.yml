@@ -21,6 +21,9 @@ jobs:
         with:
           node-version: 12
 
+      - name: Install Dependencies
+        run: yarn --frozen-lockfile
+
       # If no changesets were found, it won't open a PR nor throw an error.
       - name: Create Release Pull Request
         uses: changesets/action@master
