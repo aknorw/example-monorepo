@@ -1,6 +1,6 @@
 {
   "name": "package-b",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "module": "dist/index.js",
   "files": ["dist"],
   "repository": {
@@ -15,6 +15,6 @@
     "build": "rollup -c"
   },
   "dependencies": {
-    "package-a": "^0.1.0"
+    "package-a": "^0.1.1"
   }
 }
