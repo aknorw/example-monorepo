@@ -21,7 +21,7 @@ jobs:
         with:
           node-version: 12.x
           registry-url: https://npm.pkg.github.com/
-          scope: "@frontapp"
+          scope: "@aknorw"
 
       # If no changesets were found, it won't open a PR nor throw an error.
       - name: Create Release Pull Request
