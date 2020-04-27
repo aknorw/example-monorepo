@@ -6,8 +6,8 @@ on:
       - develop
 
 jobs:
-  deps:
-    name: Install dependencies
+  release:
+    name: Release
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
@@ -17,6 +17,8 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12
+          registry-url: https://npm.pkg.github.com/
+          scope: "@aknorw"
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
@@ -34,58 +36,11 @@ jobs:
         if: steps.yarn-cache.outputs.cache-hit != 'true'
         run: yarn --frozen-lockfile
 
-  release:
-    name: Create Release Pull Request
-    needs: deps
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v2
-        with:
-          # This makes Actions fetch all Git history so that Changesets can generate changelogs with the correct commits
-          fetch-depth: 0
-
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      - name: Cache dependencies
-        uses: actions/cache@v1
-        id: yarn-cache
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-
       # If no changesets were found, it won't open a PR nor throw an error.
-      - name: Create Pull Request
+      - name: Create Changelog PR
         uses: changesets/action@master
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}} # Automatically created by GitHub.
-
-  publish:
-    if: github.event.pull_request.merged == 'true'
-    name: Publish
-    needs: deps
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v2
-
-      - name: Restore dependencies
-        uses: actions/cache@v1
-        id: cache
-        with:
-          path: |
-            node_modules
-            */*/node_modules
-          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
-
-      - name: Setup Node.js 12.x
-        uses: actions/setup-node@v1
-        with:
-          node-version: 12
-          registry-url: https://npm.pkg.github.com/
-          scope: "@aknorw"
 
       # Because of the prepublishOnly script, packages will be built before being published.
       - name: Publish packages
