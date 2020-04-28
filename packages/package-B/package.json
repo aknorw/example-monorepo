@@ -1,8 +1,10 @@
 {
-  "name": "package-b",
+  "name": "@aknorw/package-b",
   "version": "0.0.3",
   "module": "dist/index.js",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "repository": {
     "type": "git",
     "url": "ssh://git@github.com/aknorw/example-monorepo.git",
@@ -15,6 +17,6 @@
     "build": "rollup -c"
   },
   "dependencies": {
-    "package-a": "^0.1.1"
+    "@aknorw/package-a": "^0.1.1"
   }
 }

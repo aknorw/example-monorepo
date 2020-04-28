@@ -1,8 +1,10 @@
 {
-  "name": "package-a",
+  "name": "@aknorw/package-a",
   "version": "0.1.1",
   "module": "dist/index.js",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "repository": {
     "type": "git",
     "url": "ssh://git@github.com/aknorw/example-monorepo.git",
