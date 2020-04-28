@@ -1,5 +1,11 @@
 # package-a
 
+## 0.1.2
+
+### Patch Changes
+
+- c6abfd2: Test
+
 ## 0.1.1
 
 ### Patch Changes
