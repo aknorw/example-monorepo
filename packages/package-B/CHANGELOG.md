@@ -1,5 +1,13 @@
 # package-b
 
+## 0.0.4
+
+### Patch Changes
+
+- c6abfd2: Test
+- Updated dependencies [c6abfd2]
+  - @aknorw/package-a@0.1.2
+
 ## 0.0.3
 
 ### Patch Changes
