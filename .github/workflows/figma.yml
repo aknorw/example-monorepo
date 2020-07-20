@@ -39,7 +39,7 @@ jobs:
         run: yarn --frozen-lockfile
 
       - name: Run script
-        run: yarn import:icons
+        run: FIGMA_ACCESS_TOKEN=${{ secrets.FIGMA_ACCESS_TOKEN }} yarn import:icons
 
       - name: Commit new icons
         uses: stefanzweifel/git-auto-commit-action@v4
