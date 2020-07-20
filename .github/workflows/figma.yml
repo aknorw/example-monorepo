@@ -8,6 +8,7 @@ on:
 jobs:
   import-icons:
     name: Import icons from Figma
+    if: github.event.pull_request.title == '[Figma] Update icons'
     runs-on: ubuntu-latest
     defaults:
       run:
