@@ -3,7 +3,7 @@ name: Import icons from Figma
 on:
   pull_request:
     branches:
-      - "develop"
+      - "master"
 
 jobs:
   import-icons:
