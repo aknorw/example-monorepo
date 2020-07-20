@@ -1,6 +1,6 @@
 {
-  "name": "package-b",
-  "version": "0.0.2",
+  "name": "@aknorw/package-b",
+  "version": "0.0.4",
   "module": "dist/index.js",
   "files": ["dist"],
   "repository": {
@@ -12,9 +12,10 @@
   "scripts": {
     "clean": "rimraf dist",
     "prebuild": "yarn clean",
-    "build": "rollup -c"
+    "build": "rollup -c",
+    "import:icons": "node ../../scripts/importIconsFromFigma.js"
   },
   "dependencies": {
-    "package-a": "^0.1.0"
+    "@aknorw/package-a": "^0.1.2"
   }
 }
