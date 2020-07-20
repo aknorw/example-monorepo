@@ -1,0 +1,47 @@
+name: Import icons from Figma
+
+on:
+  pull_request:
+    types: [opened]
+    branches:
+      - "figma-update-**"
+
+jobs:
+  import-icons:
+    name: Import icons from Figma
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: packages/package-B
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
+
+      - name: Setup Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - name: Cache dependencies
+        uses: actions/cache@v1
+        id: yarn-cache
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
+
+      - name: Run script
+        run: yarn import:icons
+
+      - name: Commit new icons
+        uses: stefanzweifel/git-auto-commit-action@v4
+            with:
+              commit_message: Import new icons

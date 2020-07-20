@@ -12,7 +12,8 @@
   "scripts": {
     "clean": "rimraf dist",
     "prebuild": "yarn clean",
-    "build": "rollup -c"
+    "build": "rollup -c",
+    "import:icons": "node ../../scripts/importIconsFromFigma.js"
   },
   "dependencies": {
     "@aknorw/package-a": "^0.1.2"
